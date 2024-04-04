@@ -1,3 +1,11 @@
+import { Button } from "@/components/ui/button";
+
 export default function Home() {
-  return <main>Gamified voting system</main>
+  return (
+    <div>
+      <Button>
+        Click
+      </Button>
+    </div>
+  )
 }

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Lato } from 'next/font/google'
 import './globals.css'
 import Header from './header'
+import { AuthProvider } from '@/contexts/authContext'
 
 export const metadata: Metadata = {
   title: 'Gamified voting system',
@@ -19,12 +20,14 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" type="image/png" href="/favicon.png" />
       <body className={font.className}>
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-1 flex flex-col items-center justify-center">
-            {children}
-          </main>
-        </div>
+        <AuthProvider>
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-1 flex flex-col items-center justify-center">
+              {children}
+            </main>
+          </div>
+        </AuthProvider>
       </body>
     </html>
   )
